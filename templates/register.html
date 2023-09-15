@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content-section">
+        <form action="/register" method="post">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend>Register Here</legend>
+                <div class="form-item">
+                    <h4 class="form-label">{{form.name.label}}</h4>
+                    {% if form.name.errors %}
+                        {{form.name(class="is-invalid", placeholder='Name')}}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.name(class="", placeholder='Name')}}
+                    {% endif %}
+                </div>
+                <div class="form-item">
+                    <h4 class="form-label">{{form.email.label}}</h4>
+                    {% if form.email.errors %}
+                        {{ form.email(class="is-invalid", placeholder='Email Address') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.email(class="", placeholder="Email Address")}}
+                    {% endif %}
+                </div>
+                <div class="form-item">
+                    <h4 class="form-label">{{form.phone.label}}</h4>
+                    {% if form.phone.errors %}
+                        {{ form.phone(class="is-invalid", placeholder='Phone Number') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.phone.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.phone(class="", placeholder="Phone Number")}}
+                    {% endif %}
+                </div>
+
+                <div class="form-item">
+                    <h4 class="form-label">{{form.acctBalance.label}}</h4>
+                    {% if form.acctBalance.errors %}
+                        {{ form.acctBalance(class="is-invalid", placeholder='Amount to be deposited') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.acctBalance.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.acctBalance(class="", placeholder="Amount to be deposited")}}
+                    {% endif %}
+                </div>
+                <div class="form-item">
+                    <h4 class="form-label">{{form.pin.label}}</h4>
+                    {% if form.pin.errors %}
+                        {{ form.pin(class="is-invalid", placeholder='Secret Pin') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.pin.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.pin(class="", placeholder="Pin")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-item">
+                    <h4 class="form-label">{{form.confirmPin.label}}</h4>
+                    {% if form.confirmPin.errors %}
+                        {{ form.confirmPin(class="is-invalid", placeholder='Confirm Banking Pin') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirmPin.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.confirmPin(class="", placeholder="Confirm Banking Pin")}}
+                    {% endif %}
+                </div>
+
+                
+                <div class="form-item">
+                    <h4 class="form-label">{{form.password.label}}</h4>
+                    {% if form.password.errors %}
+                        {{ form.password(class="is-invalid", placeholder='Password') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.password(class="", placeholder="Password")}}
+                    {% endif %}
+                </div>
+                <div class="form-item">
+                    <h4 class="form-label">{{form.confirm_password.label}}</h4>
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="is-invalid", placeholder='Confirm Password') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.confirm_password(class="", placeholder="ConfirmPassword")}}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="submit">
+                <button type="submit"><h3>Register</h3></button>
+            </div>
+            <div class="info">
+                <h3>Already Registered?<a href="{{url_for('login')}}">Login</a></h3>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content-section">
+        <form action="/transfer" method="post">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend>Make Your Transfer</legend>
+                <div class="form-item">
+                    <h4 class="form-label">{{form.receiver.label}}</h4>
+                    {% if form.receiver.errors %}
+                        {{ form.reciever(class="is-invalid", placeholder='Account Number') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.receiver.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.receiver(class="", placeholder="Account Number")}}
+                    {% endif %}
+                </div>
+                <div class="form-item">
+                    <h4 class="form-label">{{form.amount.label}}</h4>
+                    {% if form.amount.errors %}
+                        {{ form.amount(class="is-invalid", placeholder='Amount') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.amount.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.amount(class="", placeholder="Amount")}}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="submit">
+                <button type="submit"><h3>Submit</h3></button>
+            </div>
+        
+        </form>
+    </div>
+{% endblock content %}

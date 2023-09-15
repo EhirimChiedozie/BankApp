@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content-section">
+        <form action="/login" method="post">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend>Login Here</legend>
+                <div class="form-item">
+                    <h4 class="form-label">{{form.email.label}}</h4>
+                    {% if form.email.errors %}
+                        {{ form.email(class="is-invalid", placeholder='Email Address') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.email(class="", placeholder="Email Address")}}
+                    {% endif %}
+                </div>
+                <div class="form-item">
+                    <h4 class="form-label">{{form.password.label}}</h4>
+                    {% if form.password.errors %}
+                        {{ form.password(class="is-invalid", placeholder='Password') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.password(class="", placeholder="Password")}}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="submit">
+                <button type="submit"><h3>Login</h3></button>
+            </div>
+            <div class="info">
+                <h3>Not a student?<a href="{{url_for('register')}}">Register</a></h3>
+                <h4><a href="#">Forgotten Password?</a></h4>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

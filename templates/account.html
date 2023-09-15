@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="jumbotron welcome">
+        <h1 class="username">Welcome {{current_user.name}}
+            <br>
+            <br>
+            <h2 class="acct-balance">{{current_user.acctBalance}}</h2>
+        </h1>
+    </div>
+    <div class="trans-type">
+        <div id="Transfer" class="jumbotron transaction">
+            <a href="{{(url_for('transfer'))}}" class="transfer"><h3>Transfer</a>
+        </div>
+        <div id="CheckBalance" class="jumbotron transaction">
+            <a href="{{(url_for('checkBalance'))}}" class="balance"><h3>Balance</h3></a>
+        </div>
+        <div id="Airtime" class="jumbotron transaction">
+            <a href="#" class="airtime-purchase">Airtime</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+<!--
+<div class="acct-info">
+        <h1 class="write-up">Welcome {{current_user.name}}</h1>
+        <h3 class="write-up">Click on any of the items below to select a transaction
+    </div>
+
+-->
+
+    
+{% endblock content %}
