@@ -1,1 +1,1 @@
-# BankApp
+Written with python, BankApp is a web app that registers users, log in users and allows some banking operations such as checking account balance abd transferring money to a different account registered within the system.
