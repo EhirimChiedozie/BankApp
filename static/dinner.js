@@ -37,11 +37,11 @@ const remark = document.createElement('h4')
 jumbo.append(remark);
 if(amount.innerHTML<=500){
     jumbo.style.backgroundColor = 'red';
-    remark.innerText = 'Sapa don hook you';  
+    remark.innerText = 'You need to start working hard';  
 }
 else if(amount.innerHTML>500 && amount.innerHTML<5000){
     jumbo.style.backgroundColor = 'sienna';
-    remark.innerHTML = 'You just manage escape sapa. E fit still catch you. Hustle ooo'
+    remark.innerHTML = 'Just some metres away from being broke'
 }
 else if(amount.innerHTML>=5000 && amount.innerHTML<50000){
     jumbo.style.backgroungColor = 'darkslategray';
@@ -49,5 +49,5 @@ else if(amount.innerHTML>=5000 && amount.innerHTML<50000){
 }
 else if(amount.innerHTML>50000){
     jumbo.style.backgroungColor = 'darkslateblue';
-    remark.innerHTML = 'You fit relax';
+    remark.innerHTML = 'You are above the brokeness level';
 }
